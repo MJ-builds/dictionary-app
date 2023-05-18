@@ -1,15 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useWordContext } from "../context/WordContext";
 
 export default function DefinitionDisplay() {
   const { wordData, activeWord } = useWordContext();
 
-  const data = wordData[0];
+  //for playing of the audio
+  const audioRef = useRef();
+
+  const playAudio = () => {
+    audioRef.current.play();
+  };
 
   if (!wordData) {
     return null;
   }
+
+  const data = wordData[0];
 
   if (wordData.title === "No Definitions Found") {
     return (
@@ -33,13 +40,22 @@ export default function DefinitionDisplay() {
     <div className="flex flex-col justify-between min-w-[370px] md:min-w-full">
       <div className="flex flex-row justify-between items-center w-full text-[#2D2D2D] text-[2rem] md:text-[4rem]">
         {wordData.length > 0 && data.word}
+
         <div>
-          <button className="flex items-center">
-            <img
-              src="./assets/images/icon-play.svg"
-              className="w-12 h-12 md:w-20 md:h-20"
-            />
-          </button>
+          <img
+            onClick={playAudio}
+            src="./assets/images/icon-play.svg"
+            alt="Play Audio"
+            className="flex items-center w-12 h-12 md:w-20 md:h-20 cursor-pointer"
+          />
+          <audio
+            ref={audioRef}
+            src={`${
+              data.phonetics.length === 0
+                ? ""
+                : data.phonetics[data.phonetics.length - 1].audio
+            }`}
+          />
         </div>
       </div>
       <div className="text-[#A445ED] font-normal">{data.phonetic}</div>

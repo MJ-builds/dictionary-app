@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <div className="flex justify-between items-center mb-8 min-w-[370px] md:min-w-full border border-blue-400">
+    <div className="flex justify-between items-center mb-8 min-w-[370px] md:min-w-full pt-5">
       <div>
         <img src="./assets/images/logo.svg" />
       </div>

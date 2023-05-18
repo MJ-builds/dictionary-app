@@ -22,9 +22,9 @@ function Home() {
   return (
     //replace font with font-{currentFont} or something like that from state i'll set up in context (currentFont, setCurrentFont)
     //same for when i set up theme - className= {`$theme font-${currentFont}} flex etc etc etc`}
-    <main className="font-inconsolata flex flex-col min-h-screen items-center">
+    <main className="text-[#2D2D2D] bg-[#ffffff] font-inter font-bold text-xl flex flex-col min-h-screen items-center">
       {/* unsure re this extra div just yet*/}
-      <div className="flex flex-col justify-center items-center w-auto">
+      <div className="flex flex-col justify-center items-center w-auto min-w-[370px] md:min-w-[737px] border border-orange-600">
         <Navbar />
         <SearchBar />
         <DefinitionDisplay />

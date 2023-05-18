@@ -742,6 +742,58 @@
         "async": false
       }
     },
+    "(app-client)/./app/components/DefinitionDisplay.js": {
+      "*": {
+        "id": "(sc_client)/./app/components/DefinitionDisplay.js",
+        "name": "*",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/components/DefinitionDisplay.js",
+        "name": "",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/components/DefinitionDisplay.js",
+        "name": "default",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      }
+    },
+    "(app-client)/./app/components/SearchBar.js": {
+      "*": {
+        "id": "(sc_client)/./app/components/SearchBar.js",
+        "name": "*",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "": {
+        "id": "(sc_client)/./app/components/SearchBar.js",
+        "name": "",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./app/components/SearchBar.js",
+        "name": "default",
+        "chunks": [
+          "app/page:static/chunks/app/page.js"
+        ],
+        "async": false
+      }
+    },
     "(app-client)/./app/context/WordContext.js": {
       "*": {
         "id": "(sc_client)/./app/context/WordContext.js",
@@ -2503,6 +2555,54 @@
       "chunks": [
         "static/css/app/page.css"
       ]
+    },
+    "C:\\Users\\pleas\\OneDrive\\Desktop\\CODE\\dictionary\\dictionary-app\\app\\components\\DefinitionDisplay.js": {
+      "id": "(app-client)/./app/components/DefinitionDisplay.js",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\pleas\\OneDrive\\Desktop\\CODE\\dictionary\\dictionary-app\\app\\components\\DefinitionDisplay.js#": {
+      "id": "(app-client)/./app/components/DefinitionDisplay.js",
+      "name": "",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\pleas\\OneDrive\\Desktop\\CODE\\dictionary\\dictionary-app\\app\\components\\DefinitionDisplay.js#default": {
+      "id": "(app-client)/./app/components/DefinitionDisplay.js",
+      "name": "default",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\pleas\\OneDrive\\Desktop\\CODE\\dictionary\\dictionary-app\\app\\components\\SearchBar.js": {
+      "id": "(app-client)/./app/components/SearchBar.js",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\pleas\\OneDrive\\Desktop\\CODE\\dictionary\\dictionary-app\\app\\components\\SearchBar.js#": {
+      "id": "(app-client)/./app/components/SearchBar.js",
+      "name": "",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\pleas\\OneDrive\\Desktop\\CODE\\dictionary\\dictionary-app\\app\\components\\SearchBar.js#default": {
+      "id": "(app-client)/./app/components/SearchBar.js",
+      "name": "default",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
     },
     "C:\\Users\\pleas\\OneDrive\\Desktop\\CODE\\dictionary\\dictionary-app\\app\\context\\WordContext.js": {
       "id": "(app-client)/./app/context/WordContext.js",

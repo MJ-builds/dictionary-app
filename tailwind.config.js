@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -10,9 +10,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'inconsolata': ['Inconsolata', ...defaultTheme.fontFamily.mono],
-        'inter': ['Inter', ...defaultTheme.fontFamily.sans],
-        'lora': ['Lora', ...defaultTheme.fontFamily.serif],
+        'inconsolata': ['Inconsolata', 'monospace'],
+        'inter': ['Inter', 'sans-serif'],
+        'lora': ['Lora', 'serif'],
       }
     },
   },

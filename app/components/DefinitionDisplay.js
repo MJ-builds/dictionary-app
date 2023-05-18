@@ -1,9 +1,15 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useWordContext } from "../context/WordContext";
+import NotFound from "./NotFound";
+import EmptySearch from "./EmptySearch";
 
 export default function DefinitionDisplay() {
-  const { wordData, activeWord } = useWordContext();
+  const { wordData, activeWord, fetchWordData } = useWordContext();
+
+  useEffect(() => {
+    fetchWordData(activeWord);
+  }, [activeWord]);
 
   //for playing of the audio
   const audioRef = useRef();
@@ -18,22 +24,12 @@ export default function DefinitionDisplay() {
 
   const data = wordData[0];
 
+  if (activeWord === "") {
+    return <EmptySearch />;
+  }
+
   if (wordData.title === "No Definitions Found") {
-    return (
-      <div className="flex w-full md:w-[737px] pt-5">
-        <div className="flex flex-col w-[350px] md:w-full md:justify-center md:items-center gap-2">
-          <div className="flex justify-center pb-5">
-            <img src="./assets/images/face.png" />
-          </div>
-          <div className="font-bold flex justify-center pb-8">
-            {wordData.title}
-          </div>
-          <div className="font-light text-[#757575]">
-            {wordData.message} {wordData.resolution}
-          </div>
-        </div>
-      </div>
-    );
+    return <NotFound />;
   }
 
   return (
@@ -45,22 +41,24 @@ export default function DefinitionDisplay() {
             {data.phonetic}
           </div>
         </div>
-        <div>
-          <img
-            onClick={playAudio}
-            src="./assets/images/icon-play.svg"
-            alt="Play Audio"
-            className="flex items-center w-12 h-12 md:w-20 md:h-20 cursor-pointer"
-          />
-          <audio
-            ref={audioRef}
-            src={`${
-              data.phonetics.length === 0
-                ? ""
-                : data.phonetics[data.phonetics.length - 1].audio
-            }`}
-          />
-        </div>
+        {activeWord.length > 0 && (
+          <div>
+            <img
+              onClick={playAudio}
+              src="./assets/images/icon-play.svg"
+              alt="Play Audio"
+              className="flex items-center w-12 h-12 md:w-20 md:h-20 cursor-pointer"
+            />
+            <audio
+              ref={audioRef}
+              src={
+                data.phonetics && data.phonetics.length > 0
+                  ? data.phonetics[data.phonetics.length - 1].audio
+                  : ""
+              }
+            />
+          </div>
+        )}
       </div>
     </div>
   );

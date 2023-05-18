@@ -38,9 +38,13 @@ export default function DefinitionDisplay() {
 
   return (
     <div className="flex flex-col justify-between min-w-[370px] md:min-w-full">
-      <div className="flex flex-row justify-between items-center w-full text-[#2D2D2D] text-[2rem] md:text-[4rem]">
-        {wordData.length > 0 && data.word}
-
+      <div className="flex flex-row justify-between items-center w-full text-[#2D2D2D] text-3xl md:text-6xl">
+        <div className="flex flex-col">
+          {wordData.length > 0 && <div>{data.word}</div>}
+          <div className="text-[#A445ED] font-normal text-lg md:text-2xl pt-2">
+            {data.phonetic}
+          </div>
+        </div>
         <div>
           <img
             onClick={playAudio}
@@ -58,7 +62,6 @@ export default function DefinitionDisplay() {
           />
         </div>
       </div>
-      <div className="text-[#A445ED] font-normal">{data.phonetic}</div>
     </div>
   );
 }

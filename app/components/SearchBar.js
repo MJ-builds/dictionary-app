@@ -25,14 +25,14 @@ export default function SearchBar() {
 
   return (
     <div
-      className={`flex justify-between items-center mb-8 h-[64px] min-w-[370px] md:w-[737px] bg-[#F4F4F4] rounded-2xl ${
+      className={`flex justify-between items-center mb-4 md:mb-8 h-[48px] md:h-[64px] min-w-[370px] md:w-[737px] bg-[#F4F4F4] dark:bg-[#1F1F1F] rounded-2xl ${
         activeWord === "" ? "border border-[#FF5252]" : ""
       }`}
     >
-      <form className="flex w-full" onSubmit={onSubmitHandler}>
-        <div className="flex flex-row gap-5 pl-5 w-full">
+      <form className="flex w-full " onSubmit={onSubmitHandler}>
+        <div className="flex flex-row gap-5 pl-5 w-full ">
           <input
-            className="bg-transparent grow outline-none placeholder-[#2D2D2D] placeholder-opacity-25 text-base md:text-xl"
+            className="bg-transparent grow outline-none caret-[#A445ED] placeholder-[#2D2D2D] dark:placeholder-[#ffffff] placeholder-opacity-25 dark:placeholder-opacity-25 text-base md:text-xl "
             value={inputValue}
             placeholder="Search for any word..."
             onChange={onChangeHandler}

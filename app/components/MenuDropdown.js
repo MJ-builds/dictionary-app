@@ -20,7 +20,7 @@ export default function MenuDropdown() {
   };
 
   return (
-    <div className="relative ml-auto flex-row">
+    <div className="relative flex-row ">
       {/* for now, placehold with Sans Serif but it will need to be dynamic 
         based on your choice of the dropdown - use state */}
       <button
@@ -36,24 +36,24 @@ export default function MenuDropdown() {
       </button>
 
       {isMenuOpen && (
-        <div className="absolute right-0 grid-flow-row h-full items-center z-10 shadow-lg rounded-2xl p-4 border border-[#faf8f8] bg-white min-w-[122px] min-h-[101px] md:min-w-[183px] md:min-h-[152px]">
-          <ul className="flex flex-col justify-between h-full cursor-pointer text-sm md:text-lg">
+        <div className="absolute right-0 grid-flow-row h-full items-center z-10 dark:shadow-lobsided shadow-lobsided-light dark:shadow-[#A445ED] rounded-2xl p-4 bg-white dark:bg-[#1F1F1F] min-w-[122px] min-h-[101px] md:min-w-[183px] md:min-h-[152px]">
+          <ul className="flex flex-col justify-between h-full cursor-pointer text-sm md:text-lg pl-2">
             <li
-              className="font-inter"
+              className="font-inter hover:text-[#A445ED]"
               data-font="inter"
               onClick={handleItemClick}
             >
               Sans Serif
             </li>
             <li
-              className="font-lora"
+              className="font-lora hover:text-[#A445ED]"
               data-font="lora"
               onClick={handleItemClick}
             >
               Serif
             </li>
             <li
-              className="font-inconsolata"
+              className="font-inconsolata hover:text-[#A445ED]"
               data-font="inconsolata"
               onClick={handleItemClick}
             >

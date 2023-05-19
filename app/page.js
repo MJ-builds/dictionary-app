@@ -1,8 +1,8 @@
 "use client";
 //this should most likely go in context?
-import "@fontsource/inconsolata";
-import "@fontsource/inter";
-import "@fontsource/lora";
+// import "@fontsource/inconsolata";
+// import "@fontsource/inter";
+// import "@fontsource/lora";
 
 import Navbar from "./components/Navbar";
 import DefinitionDisplay from "./components/DefinitionDisplay";
@@ -25,7 +25,7 @@ function Home() {
     //replace font with font-{currentFont} or something like that from state i'll set up in context (currentFont, setCurrentFont)
     //same for when i set up theme - className= {`$theme font-${currentFont}} flex etc etc etc`}
     <main
-      className={`${theme} text-[#2D2D2D] bg-[#ffffff] font-${activeFont} font-bold text-xl flex flex-col min-h-screen items-center`}
+      className={`${theme} text-[#2D2D2D] dark:text-white bg-[#ffffff] dark:bg-[#050505] font-${activeFont} font-bold text-xl flex flex-col min-h-screen items-center`}
     >
       {/* unsure re this extra div just yet*/}
       <div className="flex flex-col justify-center items-center w-auto min-w-[370px] md:min-w-[737px]">

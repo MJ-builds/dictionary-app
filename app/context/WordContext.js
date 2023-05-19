@@ -11,9 +11,9 @@ export const useWordContext = () => {
 
 export const WordProvider = ({ children }) => {
   //getting data, depending on the searchword
-  const [wordData, setWordData] = useState("null");
+  const [wordData, setWordData] = useState([]);
   //related to search - searchword itself
-  const [activeWord, setActiveWord] = useState("words");
+  const [activeWord, setActiveWord] = useState("keyboard");
   //note for later: Sans-serif = inter, Serif = lora, Mono = inconsolata
   const [activeFont, setActiveFont] = useState("inter");
   //for themes later on
@@ -31,6 +31,11 @@ export const WordProvider = ({ children }) => {
       console.log("An error has occured", error);
     }
   };
+
+  //moved here instead of DefinitionDisplay comp.
+  useEffect(() => {
+    fetchWordData(activeWord);
+  }, [activeWord]);
 
   //theme func. may put this in it's own context.
   const toggleTheme = () => {

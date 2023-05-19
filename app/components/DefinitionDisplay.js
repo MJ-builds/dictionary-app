@@ -58,56 +58,59 @@ export default function DefinitionDisplay() {
       </div>
       <div className="flex flex-col w-full md:w-[737px]">
         <div className="flex flex-col w-[350px] md:w-full">
-          <div className="flex items-center">
-            <div className="py-6 italic text-lg md:text-2xl">noun</div>
-            <span className="flex-grow border-b border-[#E9E9E9] dark:border-[#3A3A3A] ml-7"></span>
-          </div>
+          {/* I think this is where i need to add the .map. */}
+          {data && data.meanings && data.meanings.length > 0
+            ? data.meanings.slice(0, 5).map((speechType, index) => (
+                <>
+                  <div key={index} className="flex items-center">
+                    <div className="py-6 italic text-lg md:text-2xl">
+                      {speechType.partOfSpeech}
+                    </div>
+                    <span className="flex-grow border-b border-[#E9E9E9] dark:border-[#3A3A3A] ml-7"></span>
+                  </div>
+                  <div className="text-[#757575] font-normal text-base md:text-xl">
+                    Meaning
+                    {/* might need some checks to make sure data is not null */}
+                    {speechType ? (
+                      <ul
+                        className="list-disc mt-4 md:mt-5 marker:text-[#A445ED] text-[#2D2D2D] dark:text-[#ffffff] text-[0.95rem] md:text-lg pl-4 md:pl-10"
+                        style={{ listStylePosition: "outside" }}
+                      >
+                        {speechType.definitions
+                          /* slice returns up to 25 items, but if the index is lower, 
+              will return only those (no idx err). Having it here so that i can amend later if needs be */
+                          .slice(0, 25)
+                          .map((definition, index) => (
+                            <li key={index}>
+                              <span className="block ml-2 md:ml-5">
+                                {definition.definition}
+                              </span>
+                            </li>
+                          ))}
+                      </ul>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="flex flex-row">
+                    <div className=" text-[#757575] font-normal text-base md:text-xl mt-4 flex items-start">
+                      {/* if synonyms are available for this part of speech, display, else ignore */}
+                      {speechType &&
+                        speechType.synonyms.length > 0 &&
+                        "Synonyms"}
 
-          <div className="text-[#757575] font-normal text-base md:text-xl">
-            Meaning
-            {data &&
-            data.meanings &&
-            data.meanings.length > 0 &&
-            data.meanings[0].definitions ? (
-              <ul
-                className="list-disc mt-4 md:mt-5 marker:text-[#A445ED] text-[#2D2D2D] dark:text-[#ffffff] text-[0.95rem] md:text-lg pl-4 md:pl-10"
-                style={{ listStylePosition: "outside"}}
-              >
-                {data.meanings[0].definitions
-                  /* slice returns up to 25 items, but if the index is lower, 
-          will return only those (no idx err). Having it here so that i can amend later if needs be */
-                  .slice(0, 25)
-                  .map((definition, i) => (
-                    <li key={i}>
-                      <span className="block ml-2 md:ml-5">
-                        {definition.definition}
+                      <span className="ml-6 font-bold text-[#A445ED] text-base md:text-xl">
+                        {speechType
+                          ? speechType.synonyms.map((synonym, index) => (
+                              <span key={index}>{`${synonym} `} </span>
+                            ))
+                          : ""}
                       </span>
-                    </li>
-                  ))}
-              </ul>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="flex flex-row">
-            <div className=" text-[#757575] font-normal text-base md:text-xl mt-4 flex items-start">
-              Synonyms
-              <span className="ml-6 font-bold text-[#A445ED] text-base md:text-xl">
-                {data &&
-                data.meanings &&
-                data.meanings.length > 0 &&
-                data.meanings[0].synonyms
-                  ? data.meanings[0].synonyms.map((synonym, index) => (
-                      <span key={index}>{`${synonym} `} </span>
-                    ))
-                  : ""}
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center">
-          <div className="py-6 italic text-lg md:text-2xl">verb</div>
-          <span className="flex-grow border-b border-[#E9E9E9] dark:border-[#3A3A3A] ml-7"></span>
+                    </div>
+                  </div>
+                </>
+              ))
+            : ""}
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 "use client";
 //this should most likely go in context?
-// import "@fontsource/inconsolata";
-// import "@fontsource/inter";
-// import "@fontsource/lora";
+import "@fontsource/inconsolata";
+import "@fontsource/inter";
+import "@fontsource/lora";
 
 import Navbar from "./components/Navbar";
 import DefinitionDisplay from "./components/DefinitionDisplay";

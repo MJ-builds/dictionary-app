@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 //create context
 const WordContext = createContext();
@@ -32,6 +32,21 @@ export const WordProvider = ({ children }) => {
     }
   };
 
+  //theme func. may put this in it's own context.
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    document.documentElement.classList.add(theme);
+    return () => {
+      document.documentElement.classList.remove(theme);
+    };
+  }, [theme]);
+
   return (
     <WordContext.Provider
       value={{
@@ -41,7 +56,9 @@ export const WordProvider = ({ children }) => {
         activeFont,
         setActiveFont,
         theme,
+        setTheme,
         fetchWordData,
+        toggleTheme,
       }}
     >
       {children}

@@ -12,7 +12,7 @@ export default function Navbar() {
       </div>
       <MenuDropdown />
       <div className="mx-5 text-[#E9E9E9]">|</div>
-      <div className="flex flex-row gap-5 items-center ">
+      <div className="flex items-center justify-center scale-75 md:scale-100">
         <ToggleTheme />
       </div>
     </div>

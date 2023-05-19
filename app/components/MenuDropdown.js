@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useWordContext } from "../context/WordContext";
 
 export default function MenuDropdown() {
-  const { setActiveFont } = useWordContext();
+  const { activeFont, setActiveFont } = useWordContext();
   //local state re menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,7 +27,11 @@ export default function MenuDropdown() {
         onClick={toggleMenu}
         className="flex flex-row gap-3 items-center text-sm md:text-lg"
       >
-        Sans Serif
+        {activeFont === "inter"
+          ? "Sans Serif"
+          : activeFont === "lora"
+          ? "Serif"
+          : "Mono"}
         <img src="./assets/images/icon-arrow-down.svg" />
       </button>
 

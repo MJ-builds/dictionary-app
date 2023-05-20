@@ -39,12 +39,26 @@ export default function DefinitionDisplay() {
         </div>
         {activeWord.length > 0 && (
           <div>
-            <img
-              onClick={playAudio}
-              src="./assets/images/icon-play.svg"
-              alt="Play Audio"
-              className="flex items-center w-12 h-12 md:w-20 md:h-20 cursor-pointer"
-            />
+            <div className="icon-container">
+              <svg
+                onClick={playAudio}
+                className="icon flex items-center w-12 h-12 md:w-20 md:h-20 cursor-pointer text-[#A445ED] "
+                xmlns="http://www.w3.org/2000/svg"
+                width="75"
+                height="75"
+                viewBox="0 0 75 75"
+              >
+                <g fill="currentColor" fillRule="evenodd">
+                  <circle
+                    className="icon-circle opacity-25"
+                    cx="37.5"
+                    cy="37.5"
+                    r="37.5"
+                  />
+                  <path className="icon-arrow" d="M29 27v21l21-10.5z" />
+                </g>
+              </svg>
+            </div>
             <audio
               ref={audioRef}
               src={

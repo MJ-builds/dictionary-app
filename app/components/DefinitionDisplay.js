@@ -118,7 +118,7 @@ export default function DefinitionDisplay() {
             : ""}
         </div>
         <span className="flex-grow border-b border-[#E9E9E9] dark:border-[#3A3A3A] mt-4 mb-4"></span>
-        <div className="flex flex-col md:flex-row mb-16 md:mb-28 text-sm">
+        <div className="flex flex-col md:flex-row mb-16 md:mb-28 text-sm font-normal">
           <div className="text-[#757575] underline mr-8 mb-2 md:mb-0">
             Source
           </div>

@@ -80,8 +80,8 @@ export default function DefinitionDisplay() {
                           /* slice returns up to 25 items, but if the index is lower, 
               will return only those (no idx err). Having it here so that i can amend later if needs be */
                           .slice(0, 25)
-                          .map((definition) => (
-                            <li>
+                          .map((definition, index) => (
+                            <li key={index}>
                               <span className="block ml-2 md:ml-5">
                                 {definition.definition}
                               </span>

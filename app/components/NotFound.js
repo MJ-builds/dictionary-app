@@ -13,7 +13,7 @@ export default function NotFound() {
         <div className="font-bold flex justify-center pb-8">
           {wordData.title}
         </div>
-        <div className="font-light text-[#757575]">
+        <div className="font-light text-center text-[#757575]">
           {wordData.message} {wordData.resolution}
         </div>
       </div>

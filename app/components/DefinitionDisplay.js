@@ -48,7 +48,10 @@ export default function DefinitionDisplay() {
             <audio
               ref={audioRef}
               src={
-                data && data.phonetics && data.phonetics.length > 0 && data.phonetics[data.phonetics.length - 1].audio !== ''
+                data &&
+                data.phonetics &&
+                data.phonetics.length > 0 &&
+                data.phonetics[data.phonetics.length - 1].audio !== ""
                   ? data.phonetics[data.phonetics.length - 1].audio
                   : "./assets/audio/not-available-audio.mp3"
               }

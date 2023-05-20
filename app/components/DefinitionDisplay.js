@@ -121,7 +121,7 @@ export default function DefinitionDisplay() {
                         speechType.synonyms.length > 0 &&
                         "Synonyms"}
 
-                      <span className="ml-6 font-bold text-[#A445ED] text-base md:text-xl">
+                      <span className="ml-6 font-bold text-[#A445ED] hover:underline text-base md:text-xl">
                         {speechType
                           ? speechType.synonyms.map((synonym, index) => (
                               <span key={index}>{`${synonym} `} </span>

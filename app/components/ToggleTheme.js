@@ -11,7 +11,6 @@ export default function ToggleTheme() {
   const handleChange = () => {
     setIsChecked(!isChecked);
     toggleTheme();
-    console.log(theme);
   };
 
   return (

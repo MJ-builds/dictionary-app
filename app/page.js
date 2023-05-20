@@ -28,7 +28,7 @@ function Home() {
       className={`${theme} text-[#2D2D2D] dark:text-white bg-[#ffffff] dark:bg-[#050505] font-${activeFont} font-bold text-xl flex flex-col min-h-screen items-center`}
     >
       {/* unsure re this extra div just yet*/}
-      <div className="flex flex-col justify-center items-center w-auto min-w-[370px] md:min-w-[737px]">
+      <div className="flex flex-col justify-center items-center w-auto min-w-[370px] md:min-w-[737px] md:my-5">
         <Navbar />
         <SearchBar />
         <DefinitionDisplay />

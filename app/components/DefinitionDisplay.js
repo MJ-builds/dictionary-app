@@ -61,8 +61,8 @@ export default function DefinitionDisplay() {
           {/* I think this is where i need to add the .map. */}
           {data && data.meanings && data.meanings.length > 0
             ? data.meanings.slice(0, 5).map((speechType, index) => (
-                <>
-                  <div key={index} className="flex items-center">
+                <React.Fragment key={index}>
+                  <div className="flex items-center">
                     <div className="py-6 italic text-lg md:text-2xl">
                       {speechType.partOfSpeech}
                     </div>
@@ -80,11 +80,16 @@ export default function DefinitionDisplay() {
                           /* slice returns up to 25 items, but if the index is lower, 
               will return only those (no idx err). Having it here so that i can amend later if needs be */
                           .slice(0, 25)
-                          .map((definition, index) => (
-                            <li key={index}>
+                          .map((definition) => (
+                            <li>
                               <span className="block ml-2 md:ml-5">
                                 {definition.definition}
                               </span>
+                              {/* may need to add better checking */}
+                              {speechType.partOfSpeech === "verb" &&
+                                definition?.example && (
+                                  <span className="block ml-2 md:ml-5 my-2 text-[#757575]">{`"${definition.example}"`}</span>
+                                )}
                             </li>
                           ))}
                       </ul>
@@ -108,9 +113,32 @@ export default function DefinitionDisplay() {
                       </span>
                     </div>
                   </div>
-                </>
+                </React.Fragment>
               ))
             : ""}
+        </div>
+        <span className="flex-grow border-b border-[#E9E9E9] dark:border-[#3A3A3A] mt-4 mb-4"></span>
+        <div className="flex flex-col md:flex-row mb-16 md:mb-28 text-sm">
+          <div className="text-[#757575] underline mr-8 mb-2 md:mb-0">
+            Source
+          </div>
+          {data && data.sourceUrls ? (
+            <a
+              href={`${data.sourceUrls.slice(0, 1)}`}
+              alt="Source of searched word"
+              target="_blank"
+            >
+              <button className="flex pr-5 items-center">
+                <span className="underline text-[#2D2D2D] dark:text-[#ffffff] mr-4">
+                  {data.sourceUrls.slice(0, 1)}
+                </span>
+                <img
+                  className="mb-[0.125rem]"
+                  src="./assets/images/icon-new-window.svg"
+                />
+              </button>
+            </a>
+          ) : null}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useWordContext } from "../context/WordContext";
 
 export default function MenuDropdown() {
@@ -8,7 +8,10 @@ export default function MenuDropdown() {
   //local state re menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  //to be used for the event handler for clicking outside of the dropdown
+  const menuRef = useRef();
+
+  const toggleMenu = (event) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -19,8 +22,39 @@ export default function MenuDropdown() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // handler for closing the dropdown menu (if open) when clicking outside of the dropdown itself.
+  const handleClickOutside = (event) => {
+    // If there's a ref object (i.e., menuRef.current isn't null)...
+    if (
+      menuRef.current &&
+      // ...and the clicked element isn't within the element referred to by the ref
+      !menuRef.current.contains(event.target)
+    ) {
+      // then we know the click was outside the dropdown. Close it.
+      setIsMenuOpen(false);
+    }
+  };
+
+  // when state changes for isMenuOpen, run this useEffect hook (to assist with the above re non-dropdown click)
+  useEffect(() => {
+    if (isMenuOpen) {
+      /* If a mousedown event occurs anywhere in the document (while menu is open), it calls 
+        the handleClickOutside function */
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      /* If the menu is not open, remove the event listener (performance reasons) */
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    /* cleanup function - run before component unmounts (to prevent memory leaks).
+    This also ensures that the event listener is removed when `isMenuOpen` changes,
+    before a new one is potentially added. */
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <div className="relative flex-row ">
+    <div className="relative flex-row " ref={menuRef}>
       {/* for now, placehold with Sans Serif but it will need to be dynamic 
         based on your choice of the dropdown - use state */}
       <button

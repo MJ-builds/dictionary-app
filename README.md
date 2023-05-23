@@ -4,7 +4,9 @@ I built this pratice project from the ground up using Nextjs / React / Tailwind 
 
 The app is responsive (mobile / medium+), has both user customisation options (custom font + dark mode), and some quality of life features (such as fallback audio for words that don't contain an audio link). Lastly, I am using the Free Dictionary API to fetch the data.
 
-Check it out on the hosted link (Vercel): [Dictionary App]https://dictionary-app-lovat.vercel.app/
+The reason for picking this project was to practice my Tailwind CSS and getting the responsive elements more in check. I admit some of the code blocks could have been shortened and some more elegant data checks in place, but I went for the faster prototyping approach where needed.
+
+Check it out on the hosted link (Vercel): [Dictionary App](https://dictionary-app-lovat.vercel.app/)
 
 ## The challenge
 

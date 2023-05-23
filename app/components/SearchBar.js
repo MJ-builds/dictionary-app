@@ -7,7 +7,7 @@ export default function SearchBar() {
     useWordContext();
   /* this is just used in addition to only update internally before enter 
   is pressed or search button is clicked - else API refreshes on every keystroke */
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("keyboard");
 
   const onChangeHandler = (e) => {
     setInputValue(e.target.value);

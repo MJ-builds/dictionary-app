@@ -22,32 +22,29 @@ export default function MenuDropdown() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // handler for closing the dropdown menu (if open) when clicking outside of the dropdown itself.
+  /* handler for closing the dropdown menu (if open) when clicking outside of the dropdown itself.
+  If there's a ref object (i.e., menuRef.current isn't null)...
+  ...and the clicked element isn't within the element referred to by the ref.
+  then we know the click was outside the dropdown. Close it.
+  */
   const handleClickOutside = (event) => {
-    // If there's a ref object (i.e., menuRef.current isn't null)...
-    if (
-      menuRef.current &&
-      // ...and the clicked element isn't within the element referred to by the ref
-      !menuRef.current.contains(event.target)
-    ) {
-      // then we know the click was outside the dropdown. Close it.
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsMenuOpen(false);
     }
   };
 
-  // when state changes for isMenuOpen, run this useEffect hook (to assist with the above re non-dropdown click)
+  /* when state changes for isMenuOpen, run this useEffect hook (to assist with the above re non-dropdown click).
+  If a mousedown event occurs anywhere in the document (while menu is open), it calls the handleClickOutside function.
+  If the menu is not open, remove the event listener (performance reasons).
+  Cleanup function (return) - run before component unmounts (to prevent memory leaks).
+  This also ensures that the event listener is removed when `isMenuOpen` changes, before a new one is potentially added.
+  */
   useEffect(() => {
     if (isMenuOpen) {
-      /* If a mousedown event occurs anywhere in the document (while menu is open), it calls 
-        the handleClickOutside function */
       document.addEventListener("mousedown", handleClickOutside);
     } else {
-      /* If the menu is not open, remove the event listener (performance reasons) */
       document.removeEventListener("mousedown", handleClickOutside);
     }
-    /* cleanup function - run before component unmounts (to prevent memory leaks).
-    This also ensures that the event listener is removed when `isMenuOpen` changes,
-    before a new one is potentially added. */
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -55,8 +52,6 @@ export default function MenuDropdown() {
 
   return (
     <div className="relative flex-row " ref={menuRef}>
-      {/* for now, placehold with Sans Serif but it will need to be dynamic 
-        based on your choice of the dropdown - use state */}
       <button
         onClick={toggleMenu}
         className="flex flex-row gap-3 items-center text-sm md:text-lg"

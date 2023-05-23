@@ -18,7 +18,7 @@ export default function DefinitionDisplay() {
     return null;
   }
 
-  if (activeWord === "") {
+  if (activeWord.trim() === "") {
     return <EmptySearch />;
   }
 
@@ -75,7 +75,6 @@ export default function DefinitionDisplay() {
       </div>
       <div className="flex flex-col w-full md:w-[737px]">
         <div className="flex flex-col w-[350px] md:w-full">
-          {/* I think this is where i need to add the .map. */}
           {data && data.meanings && data.meanings.length > 0
             ? data.meanings.slice(0, 5).map((speechType, index) => (
                 <React.Fragment key={index}>
@@ -94,9 +93,9 @@ export default function DefinitionDisplay() {
                         style={{ listStylePosition: "outside" }}
                       >
                         {speechType.definitions
-                          /* slice returns up to 25 items, but if the index is lower, 
+                          /* slice returns up to 15 items, but if the index is lower, 
               will return only those (no idx err). Having it here so that i can amend later if needs be */
-                          .slice(0, 25)
+                          .slice(0, 15)
                           .map((definition, index) => (
                             <li key={index}>
                               <span className="block ml-2 md:ml-5">
@@ -124,7 +123,12 @@ export default function DefinitionDisplay() {
                       <span className="ml-6 font-bold text-[#A445ED] text-base md:text-xl">
                         {speechType
                           ? speechType.synonyms.map((synonym, index) => (
-                              <span className="hover:underline cursor-pointer" key={index}>{`${synonym} `} </span>
+                              <span
+                                className="hover:underline cursor-pointer"
+                                key={index}
+                              >
+                                {`${synonym} `}{" "}
+                              </span>
                             ))
                           : ""}
                       </span>

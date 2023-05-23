@@ -14,7 +14,6 @@ export default function SearchBar() {
   };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    // confirm whether setActiveWord also needs to be .toLowerCase() or not...
     setActiveWord(inputValue);
     fetchWordData(inputValue.toLowerCase());
   };

@@ -1,6 +1,6 @@
 # DICTIONARY APP 
 
-I built this pratice project from the ground up using Nextjs / React / Tailwind CSS, as part of the Frontend Mentor challenge.
+I built this practice project from the ground up using Nextjs / React / Tailwind CSS, as part of the Frontend Mentor challenge.
 
 The app is responsive (mobile / medium+), has both user customisation options (custom font + dark mode), and some quality of life features (such as fallback audio for words that don't contain an audio link). Lastly, I am using the Free Dictionary API to fetch the data.
 

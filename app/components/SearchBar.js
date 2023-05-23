@@ -38,7 +38,7 @@ export default function SearchBar() {
           />
         </div>
         <button className="pr-5">
-          <img src="./assets/images/icon-search.svg" />
+          <img src="./assets/images/icon-search.svg" alt="Search icon"/>
         </button>
       </form>
     </div>

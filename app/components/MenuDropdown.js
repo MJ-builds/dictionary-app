@@ -61,7 +61,7 @@ export default function MenuDropdown() {
           : activeFont === "lora"
           ? "Serif"
           : "Mono"}
-        <img src="./assets/images/icon-arrow-down.svg" />
+        <img src="./assets/images/icon-arrow-down.svg" alt="Menu down icon"/>
       </button>
 
       {isMenuOpen && (

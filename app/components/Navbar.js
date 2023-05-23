@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div className="flex justify-between items-center mb-4 md:mb-8 min-w-[370px] md:min-w-full pt-5">
       <div>
-        <img className="transform scale-75 md:scale-100" src="./assets/images/logo.svg" />
+        <img className="transform scale-75 md:scale-100" src="./assets/images/logo.svg" alt="app nav logo"/>
       </div>
       <div className="ml-auto">
         <MenuDropdown />

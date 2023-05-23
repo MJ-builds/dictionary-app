@@ -156,6 +156,7 @@ export default function DefinitionDisplay() {
                 <img
                   className="mb-[0.125rem]"
                   src="./assets/images/icon-new-window.svg"
+                  alt="source link icon"
                 />
               </button>
             </a>

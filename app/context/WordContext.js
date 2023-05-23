@@ -26,7 +26,6 @@ export const WordProvider = ({ children }) => {
       );
       const data = await response.json();
       setWordData(data);
-      console.log(data);
     } catch (error) {
       console.log("An error has occured", error);
     }

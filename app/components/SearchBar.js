@@ -25,7 +25,7 @@ export default function SearchBar() {
   return (
     <div
       className={`flex justify-between items-center mb-4 md:mb-8 h-[48px] md:h-[64px] min-w-[370px] md:w-[737px] bg-[#F4F4F4] dark:bg-[#1F1F1F] rounded-2xl ${
-        activeWord === "" ? "border border-[#FF5252]" : ""
+        activeWord.trim() === "" ? "border border-[#FF5252]" : ""
       }`}
     >
       <form className="flex w-full " onSubmit={onSubmitHandler}>
